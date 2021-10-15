@@ -1,24 +1,16 @@
 from busquedas_02 import aestrella, ProblemaBusqueda
 
-#OBJETIVO = """1-2-3-4-a
-#5-6-7-8-b
-#9-c-d-f-g
-#h-i-j-k-l
-#m-n-o-p-e"""
-
-#INICIAL = """7-5-3-4-m
-#2-6-1-8-l
-#9-e-j-f-k
-#h-i-d-g-b
-#a-n-o-p-c"""
-
+# Elaborar un agente que resuelva un rompecabezas de 4x3  4 filas y 3 colunas
 OBJETIVO = """1-2-3
-              4-5-6
-              7-8-e"""
+4-5-6
+7-8-9
+a-b-e"""
+INICIAL = '''e-1-2
+3-4-5
+8-9-6
+7-a-b'''
 
-INICIAL = """1-2-3
-             4-5-e
-             7-8-6"""
+
 
 
 def list_to_string(list_):
@@ -35,12 +27,14 @@ def find_location(filas, element_to_find):
     for ir, row in enumerate(filas):
         for ic, element in enumerate(row):
             if element == element_to_find:
+                #print(element)
                 return ir, ic
 
 
 posiciones_objetivo = {}
 filas_objetivo = string_to_list(OBJETIVO)
-for numero in "12345678e":
+
+for numero in "123456789abe":
     posiciones_objetivo[numero] = find_location(filas_objetivo, numero)
 
 
@@ -53,7 +47,7 @@ class EigthPuzzleProblem(ProblemaBusqueda):
         acciones = []
         if fila_e > 0:
             acciones.append(filas[fila_e - 1][columna_e])
-        if fila_e < 2:
+        if fila_e < 3:
             acciones.append(filas[fila_e + 1][columna_e])
         if columna_e > 0:
             acciones.append(filas[fila_e][columna_e - 1])
@@ -89,8 +83,7 @@ class EigthPuzzleProblem(ProblemaBusqueda):
         """
         matriz = string_to_list(estado)
         distancia = 0
-
-        for numero in "12345678e":
+        for numero in "123456789abe":
             # indice actual
             fila_n, columna_n = find_location(matriz, numero)
             # indice objetivo
