@@ -12,6 +12,7 @@ from busquedas_02 import aestrella, ProblemaBusqueda
 #h-i-d-g-b
 #a-n-o-p-c"""
 
+<<<<<<< HEAD
 OBJETIVO = """1-2-3
               4-5-6
               7-8-e"""
@@ -19,6 +20,13 @@ OBJETIVO = """1-2-3
 INICIAL = """1-2-3
              4-5-e
              7-8-6"""
+=======
+OBJETIVO = """1-2
+3-e"""
+
+INICIAL = """3-1
+2-e"""
+>>>>>>> 180c71c41445ebb258e229dcab39f1f3c6426f54
 
 
 def list_to_string(list_):
@@ -40,7 +48,11 @@ def find_location(filas, element_to_find):
 
 posiciones_objetivo = {}
 filas_objetivo = string_to_list(OBJETIVO)
+<<<<<<< HEAD
 for numero in "12345678e":
+=======
+for numero in "123e":
+>>>>>>> 180c71c41445ebb258e229dcab39f1f3c6426f54
     posiciones_objetivo[numero] = find_location(filas_objetivo, numero)
 
 
@@ -53,11 +65,19 @@ class EigthPuzzleProblem(ProblemaBusqueda):
         acciones = []
         if fila_e > 0:
             acciones.append(filas[fila_e - 1][columna_e])
+<<<<<<< HEAD
         if fila_e < 2:
             acciones.append(filas[fila_e + 1][columna_e])
         if columna_e > 0:
             acciones.append(filas[fila_e][columna_e - 1])
         if columna_e < 2:
+=======
+        if fila_e < 1:
+            acciones.append(filas[fila_e + 1][columna_e])
+        if columna_e > 0:
+            acciones.append(filas[fila_e][columna_e - 1])
+        if columna_e < 1:
+>>>>>>> 180c71c41445ebb258e229dcab39f1f3c6426f54
             acciones.append(filas[fila_e][columna_e + 1])
 
         return acciones
@@ -90,7 +110,11 @@ class EigthPuzzleProblem(ProblemaBusqueda):
         matriz = string_to_list(estado)
         distancia = 0
 
+<<<<<<< HEAD
         for numero in "12345678e":
+=======
+        for numero in "123e":
+>>>>>>> 180c71c41445ebb258e229dcab39f1f3c6426f54
             # indice actual
             fila_n, columna_n = find_location(matriz, numero)
             # indice objetivo
